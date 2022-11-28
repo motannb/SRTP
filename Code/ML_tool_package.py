@@ -96,3 +96,16 @@ def Pattern_Recognition(model,X,y,train_size,random_state,voltage_num,title,dime
         PCA_Visualization_2D(X_test,y_test,2,voltage_num,title,cross_score.mean(),save_path)  #PCA降维可视化
     if(dimensionality=='3D'):
         Visualization_3D(X, y, voltage_num, title, cross_score.mean(),save_path)              #三维可视化
+
+def txt_to_csv(file_path,save_path,sep):
+    """
+    将txt文本转为csv文件 使用示例:txt_to_csv("../Data/result.txt","../Data/result.csv",'        ')
+    :param file_path: 文件路径
+    :param save_path: 保存路径
+    :param sep: 分隔符 如'\t' ',' ' '
+    :return: None
+    """
+    df=pd.read_csv(file_path,sep=sep,engine='python')        #读取数据
+    df.to_csv(save_path,encoding='utf-8',index=False)
+
+
